@@ -94,4 +94,10 @@ Seems to be working at this time.
 
 I told it to NOT use a new player but to use dummy
 
+Stopped the agent for the time being as I didn't seem to be advancing
+in the game.  It got stuck again on the log in for the user, dummy.
 
+I'm feeling like a dummy.
+
+Trying again to locate the bakery and get an item list and prices.
+Told it to NOT take longer than 5 minutes for this task.
