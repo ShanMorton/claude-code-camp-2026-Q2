@@ -52,8 +52,46 @@ I tried again in the correct folder
 ### Concerns:
     - I will go over the videos again to ensure that I am not committing files not needed.
         I'd like to not fail after the first week.
-    - Willstart to use branches once I feel more comfortable, probably after week0.
+    - Will start to use branches once I feel more comfortable, probably after week0.
 
 
+## Agent Skills
+
+Setting up Claude skill while walking through the video.
+Haven't used this before.... What will I learn?
+
+/skills
+/reload-skills
+/reload-plugin 
+were helpful cmds for me. I think I got to the point before the video did ~12:30 in video
+I didn't have to manually load the files.
+
+Kinda giddy with working with skills...
+Unsure what is next. Kinda scared, kinda exctied...  Oh boy!!
+
+I moved some things around, create new folder while watching the video at ~24:49 mark.
+I asked Claude to update the paths for the files.
+I also asked why I coudln't see the new skill I had created.
+Claude fixed that as well.
+
+< insert _7 photo >
+Note: make sure to add screenshots to this document
+
+Yea!!!
+
+Now to see if I can play the game with my newly created skill.
+I am not hopeful, but that's part of the process...
+
+/mud-player Can you find the bakery and list the items and prices?
+
+I'm being careful so I am making it give me approval each time. Kinda annoying
+but I want to be careful.
+
+Started docker and the game with my WSL windows.
+Seems to be working at this time.
+
+< How many token will I use!!???? >
+
+I told it to NOT use a new player but to use dummy
 
 
