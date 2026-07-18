@@ -51,3 +51,5 @@ that approval(s).
 ## Key Takeaways 
 For me, I see how powerful an AI code harness can be but also how quickly it can go
 out on its own to find solutions. Still a great deal of guidence is needed. 
+
+I think I'm lost but with enough understanding of what it to be learned that I want to continue.
