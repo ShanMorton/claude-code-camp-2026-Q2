@@ -24,20 +24,20 @@ Have created my new branch "Week1" and need to remind myself of the git cmds to 
 week1 
 build custom agent
 
-00_CONFIG folder? for everything and log
-01_Struc_Skeleton
-02_Tool_registry
-03_promt_builder
-04_API_CLIENT
-05_AGENT_LOOP
-06_THE_Log
-07_THE_RUN_DSL
-08_THE_REPL_LOOP
-09_
-10_Standard_Tool_LIB
+- 00_CONFIG folder? for everything and log
+- 01_Struc_Skeleton
+- 02_Tool_registry
+- 03_promt_builder
+- 04_API_CLIENT
+- 05_AGENT_LOOP
+- 06_THE_Log
+- 07_THE_RUN_DSL
+- 08_THE_REPL_LOOP
+- 09_
+- 10_Standard_Tool_LIB
     - MCP
-11_Text_User_INterface TUI
-12_
+- 11_Text_User_INterface TUI
+- 12_
 
 
 Tim's repo: https://github.com/jgolbez/claude-code-camp-2026-Q2
@@ -47,4 +47,9 @@ Use Sonnet for Claude, use lowest,cheapest model that will get the job done.
 
 Unable to hand off to a different tool, per Tim?  B/c its a live connect to a server?
 no logic for what comes next.
+
+
+10:17 am PST
+Now the video has gotten to a point where I'm unsure what I'm to do.
+Watching to stay informed; maybe "Where I should try to get to" information point.
 
