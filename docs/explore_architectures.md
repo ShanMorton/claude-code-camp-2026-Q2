@@ -4,7 +4,7 @@ Documenting my expereince for Week0 in this file.
 
 I had a lot of prep to get done as I started this week's lesson/work.
 
-I am not all that familiar with Claude or Claude Code so I did  learn a bit going through the videos.
+I am not all that familiar with Claude or Claude Code so I did learn a bit going through the videos.
 
 With the help of seeing this work being done and online help,
 (asking Claude or other AI products), I was able to stumble my way 
@@ -101,3 +101,28 @@ I'm feeling like a dummy.
 
 Trying again to locate the bakery and get an item list and prices.
 Told it to NOT take longer than 5 minutes for this task.
+
+Not working for me in that I have something incorrect.
+
+May update my model and try again.
+
+At this time, I am looking to give this a rest and move on the next class
+and see where I should be at that time.
+
+## What did I learn?
+
+I learned more about Claude Code and how to create a skill, how to get Claude Code installed to be used
+in VSCode, the CLI.
+I will be looking into how to use some of the skills and plug-ins for Claude Code.
+
+I also learned that where the instructor struggled to have the skills/plug-ins show up
+that I got there sooner b/c I did a reload of skills/plug-ins.  I don't have proof
+but to me, it seemed that way. 
+
+I did have some issues with getting my own MUD skill to show up in my list, so I'm 
+probably wrong.  I used Claude to get it corrected and I can use it, but it doesn't
+work well.
+
+Looking fwd to tomorrow's class
+
+![Checking the Model used for Claude Code](docs/screenshots/Week0/Model of Claude_1.jpg)
