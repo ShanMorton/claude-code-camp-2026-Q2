@@ -10,11 +10,10 @@ With the help of seeing this work being done and online help,
 (asking Claude or other AI products), I was able to stumble my way 
 through this first week. 
 
-NOTE: I still have the big ~1hr long video to watch and work though as of Friday 17July2026.
 
 ### Check the model being used, and how much effort being used
 
-After I got the Claude Code CLI installed and watched the 2nd video, I learned some '/ ' commands:
+After I got the Claude Code CLI installed and watched the Explore Agent Architecture 2 video, I learned some '/ ' commands:
 
 To check the model being used or to change it
 
@@ -40,7 +39,7 @@ To clear Claude's memory:
 ![Clear the memory from Claude, useful to start over](/docs/screenshots/Week0/Clear%20Claude_3.jpg)
 
 ### Skills
-In trying to install Skills and getting them to show up, as well as Plug-ins
+In trying to install Skills and getting them to show up, as well as Plug-ins,
 it seems you have to reload each:
 
 ```bash
@@ -55,19 +54,19 @@ it seems you have to reload each:
 Then you can check to see what has been installed.
 ![](/docs/screenshots/Week0/Show%20Plugins_6.jpg)
 
-I was to install the skill creater skill and able to create the MUD-Player skill.
+I was able to install the skill-creater skill, and able to create the MUD-Player skill.
 
 ![Mud-Player skill created](/docs/screenshots/Week0/Mud-Player%20Skill%20shows%20up_7.jpg)
 
 
 
-## Claude Code working, or not
+## Claude Code trying to play the game
 
 The agent couldn't get logged in. Kept trying to create a new user.
 While I wasn't supposed to correct the agent, I did, but it still couldn't get logged in.
 
 It did create bash and python files to try to log in but it still couldn't get logged in.
-There were temp files created and I didn't understand off of what was being written on my behalf.
+There were temp files created and I didn't understand much of what was being written on my behalf.
 
 
 The Agent kept trying to create a user that I didn't want created.
@@ -75,7 +74,7 @@ I was cautious about allowing Claude do too much for me.
 I was using Haiku, a smaller, less expensive model, but wanted to ensure
 that I wasn't going over budget and get a huge bill.
 
-(If I'm going to be unemployed shortly, I want to avoid having to pay huge cost.)
+*(If I'm going to be unemployed shortly, I want to avoid having to pay huge cost.)*
 
 
 At this time, I didn't try a more powerful engine for Claude, after seeing that
@@ -88,7 +87,7 @@ I got frustrated by it and wanted to not waste so many token and keep saying "ye
 It did go through the files and found info, but I think it was b/c I was not in the 
 correct folder to start Claude.  
 
-I tried again in the correct folder
+I tried again in the correct folder.
 
 ### Notes: 
     - I got docker installed and working for this project.
@@ -108,9 +107,10 @@ I tried again in the correct folder
 Setting up Claude skill while walking through the video.
 Haven't used this before.... What will I learn?
 
-/skills
-/reload-skills
-/reload-plugin 
+- /skills
+- /reload-skills
+- /reload-plugin
+
 were helpful cmds for me. I think I got to the point before the video did ~12:30 in video
 I didn't have to manually load the files.
 
@@ -119,7 +119,7 @@ Unsure what is next. Kinda scared, kinda exctied...  Oh boy!!
 
 I moved some things around, create new folder while watching the video at ~24:49 mark.
 I asked Claude to update the paths for the files.
-I also asked why I coudln't see the new skill I had created.
+I also asked why I couldn't see the new skill I had created.
 Claude fixed that as well.
 
 I was to install the skill creater skill and able to create the MUD-Player skill.
@@ -141,14 +141,14 @@ but I want to be careful.
 Started docker and the game with my WSL windows.
 Seems to be working at this time.
 
-< How many token will I use!!???? >
+< How many tokens will I use!!???? >
 
-I told it to NOT use a new player but to use dummy.
+I told Claude to NOT use a new player, but to use dummy.
 
-Stopped the agent for the time being as I didn't seem to be advancing
+Stopped the agent for the time being, as I didn't seem to be advancing
 in the game.  It got stuck again on the log in for the user, dummy.
 
-I'm feeling like a dummy.
+*I'm feeling like a dummy.*
 
 Trying again to locate the bakery and get an item list and prices.
 Told it to NOT take longer than 5 minutes for this task.
