@@ -42,6 +42,9 @@ build custom agent
 
 Tim's repo: https://github.com/jgolbez/claude-code-camp-2026-Q2
 
+Andrew's repo:  https://github.com/omenking/claude-code-camp-2026-Q2
+
+
 Use Sonnet for Claude, use lowest,cheapest model that will get the job done.
 
 
