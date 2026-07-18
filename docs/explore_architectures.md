@@ -104,7 +104,7 @@ I tried again in the correct folder.
 
 ## Agent Skills
 
-Setting up Claude skill while walking through the video.
+Setting up a Claude skill while walking through the video.
 Haven't used this before.... What will I learn?
 
 - /skills
