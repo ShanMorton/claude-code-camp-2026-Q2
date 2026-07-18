@@ -51,7 +51,13 @@ it seems you have to reload each:
 ![Run the Reload cmd for skills and plugins](/docs/screenshots/Week0/Reload%20Skill%20and%20plugin%20to%20see%20update_4.jpg)
 
 ![](/docs/screenshots/Week0/Show%20Plugins_5.jpg)
+
+Then you can check to see what has been installed.
 ![](/docs/screenshots/Week0/Show%20Plugins_6.jpg)
+
+I was to install the skill creater skill and able to create the MUD-Player skill.
+
+![Mud-Player skill created](/docs/screenshots/Week0/Mud-Player%20Skill%20shows%20up_7.jpg)
 
 
 
@@ -116,15 +122,18 @@ I asked Claude to update the paths for the files.
 I also asked why I coudln't see the new skill I had created.
 Claude fixed that as well.
 
-< insert _7 photo >
-Note: make sure to add screenshots to this document
+I was to install the skill creater skill and able to create the MUD-Player skill.
+
+![Mud-Player skill created](/docs/screenshots/Week0/Mud-Player%20Skill%20shows%20up_7.jpg)
 
 Yea!!!
 
 Now to see if I can play the game with my newly created skill.
 I am not hopeful, but that's part of the process...
 
+```bash
 /mud-player Can you find the bakery and list the items and prices?
+```
 
 I'm being careful so I am making it give me approval each time. Kinda annoying
 but I want to be careful.
@@ -134,7 +143,7 @@ Seems to be working at this time.
 
 < How many token will I use!!???? >
 
-I told it to NOT use a new player but to use dummy
+I told it to NOT use a new player but to use dummy.
 
 Stopped the agent for the time being as I didn't seem to be advancing
 in the game.  It got stuck again on the log in for the user, dummy.
@@ -166,8 +175,3 @@ probably wrong.  I used Claude to get it corrected and I can use it, but it does
 work well.
 
 Looking fwd to tomorrow's class
-
-
-
-
-)
