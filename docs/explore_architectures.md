@@ -12,6 +12,48 @@ through this first week.
 
 NOTE: I still have the big ~1hr long video to watch and work though as of Friday 17July2026.
 
+### Check the model being used, and how much effort being used
+
+After I got the Claude Code CLI installed and watched the 2nd video, I learned some '/ ' commands:
+
+To check the model being used or to change it
+
+```bash
+/model
+```
+
+![Checking the Model used for Claude Code](/docs/screenshots/Week0/Model%20of%20Claude_1.jpg)
+
+
+To check the effort being used:
+
+```bash
+/effort
+```
+![Check the level of Effort to use for Claude Code](/docs/screenshots/Week0/Effort%20Level%20of%20Claude_2.jpg)
+
+To clear Claude's memory:
+
+```bash
+/clear
+```
+![Clear the memory from Claude, useful to start over](/docs/screenshots/Week0/Clear%20Claude_3.jpg)
+
+### Skills
+In trying to install Skills and getting them to show up, as well as Plug-ins
+it seems you have to reload each:
+
+```bash
+/reload-skills
+
+/reload-plugin
+```
+![Run the Reload cmd for skills and plugins](/docs/screenshots/Week0/Reload%20Skill%20and%20plugin%20to%20see%20update_4.jpg)
+
+![](/docs/screenshots/Week0/Show%20Plugins_5.jpg)
+![](/docs/screenshots/Week0/Show%20Plugins_6.jpg)
+
+
 
 ## Claude Code working, or not
 
@@ -125,4 +167,7 @@ work well.
 
 Looking fwd to tomorrow's class
 
-![Checking the Model used for Claude Code](docs/screenshots/Week0/Model of Claude_1.jpg)
+
+
+
+)
