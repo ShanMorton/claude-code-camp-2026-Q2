@@ -38,3 +38,13 @@ build custom agent
     - MCP
 11_Text_User_INterface TUI
 12_
+
+
+Tim's repo: https://github.com/jgolbez/claude-code-camp-2026-Q2
+
+Use Sonnet for Claude, use lowest,cheapest model that will get the job done.
+
+
+Unable to hand off to a different tool, per Tim?  B/c its a live connect to a server?
+no logic for what comes next.
+
