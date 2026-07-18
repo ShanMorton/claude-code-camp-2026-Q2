@@ -44,6 +44,8 @@ Tim's repo: https://github.com/jgolbez/claude-code-camp-2026-Q2
 
 Andrew's repo:  https://github.com/omenking/claude-code-camp-2026-Q2
 
+another repo:
+https://github.com/linuxtek-canada/claude-code-camp-2026-Q2
 
 Use Sonnet for Claude, use lowest,cheapest model that will get the job done.
 
@@ -56,3 +58,5 @@ no logic for what comes next.
 Now the video has gotten to a point where I'm unsure what I'm to do.
 Watching to stay informed; maybe "Where I should try to get to" information point.
 
+Missing videos for week0.  I will resubmit.
+In 20-30 minutes.
