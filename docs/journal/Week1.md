@@ -4,6 +4,13 @@
 I want to try to get through as many videos as I can and to follow along.
 I feel this may be a little trying, but will work through as many as I can.
 
+27July2026
+Went back throug the "Explore Agent Architechure 2" video from the start and 
+not sure how I skipped it but asked Claude to fix the issue of getting logged
+in and finding the bakery. I guess I didn't put the proper prompt in the first time;
+Claude kept trying to log in and create a new user instead of logging in with
+the user I had created.
+This time around I got the prompt more correct,and proceeded with updating/creating the skill and installing the skill into Claude to be used.
 
 
 
@@ -20,13 +27,22 @@ log in with the login timing out.  I got frustrated with it and quit.
 
 
 ## Technical Conclusions
-Unknown as yet.
+27July2026
+It really make a difference how good your prompts are.  The better they are the more
+they can do. Now, I'm not thinking Claude is as dumb as I thought; I'm the less intelligent
+one for not telling it exactly what I want it to do.
 
 
 ## Key Takeaways 
 To keep trying with my efforts and following the videos.
 I'm trying to be careful and do things correctly, but I feel I'm still
 behind b/c I can't get into the game and find the bakery. 
+27July2026
+Even if you take a rest, going back over the videos and data and trying is a worthy
+endeavor to get to the next step.
+Now to move on to week1 and see if I can get finished with that week.
+I think week2 will be beyond me.
+
 
 ## Update - 2026-07-27: Fixed the login timeout and found the bakery (Summary by Claude)
 
@@ -36,7 +52,7 @@ sitting in the `02 - Agent Skills` folder to figure out why login kept timing ou
 - Root cause: the client was sending the username and password on fixed timers, but
   tbaMUD takes a few seconds to finish its telnet client-detection negotiation before
   it actually shows the "By what name" prompt. The old code raced that negotiation, so
-  the credentials landed at the wrong prompt — at one point it even blindly created a
+  the credentials landed at the wrong prompt; at one point it even blindly created a
   stray character named "Helloworld" instead of logging in as `dummy`.
 - Fix: rewrote the login logic in `scripts/mud_client.py` as a small state machine that
   reads server output until it settles, then reacts to whatever prompt actually shows up
