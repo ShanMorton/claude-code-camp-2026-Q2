@@ -39,6 +39,14 @@ Replace `"look"` with any MUD command. Common commands:
 - `say <message>` - Speak to current room
 - `get <item>` - Pick up an item
 
+### 2b. Execute Multiple Commands in One Session
+```bash
+python scripts/mud_client.py commands "look" "inventory" "score"
+```
+Logs in once and runs each command in order, printing each command's
+output. Prefer this over repeated single `command` calls when running a
+sequence of actions — it avoids repeating the login handshake each time.
+
 ### 3. Get Status
 ```bash
 python scripts/mud_client.py status
@@ -85,7 +93,11 @@ python scripts/mud_client.py logout
 
 ## Notes
 
-- The connection persists between commands, so you don't need to re-login for each action
+- Each CLI invocation is a fresh process, so `command`/`status`/`logout` each open a new
+  connection, log in, do their work, and quit. Use `commands` (plural) to run several MUD
+  commands in a single login session instead of repeating `command` many times.
+- The MUD does several seconds of telnet negotiation before showing its login prompt, and if
+  a prior session is still linkdead it skips straight back into the game instead of prompting
+  for a name/password — the client detects and handles both cases automatically.
 - Output is automatically cleaned of ANSI color codes for readability
 - Command execution is synchronous - the script waits for the MUD's response
-- If the connection drops, use `login` again to reconnect

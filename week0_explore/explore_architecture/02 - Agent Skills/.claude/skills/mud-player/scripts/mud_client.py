@@ -8,15 +8,15 @@ import socket
 import sys
 import re
 import time
-import os
-from pathlib import Path
 
 # Configuration
 MUD_HOST = 'localhost'
 MUD_PORT = 4000
 MUD_USER = 'dummy'
 MUD_PASSWORD = 'helloworld'
-SESSION_FILE = Path(os.path.expanduser('~/.mud_session'))
+
+# Marks that we've reached the normal in-game prompt, e.g. "22H 100M 84V (news) (motd) >"
+IN_GAME_RE = re.compile(rb'\d+H\s+\d+M\s+\d+V')
 
 
 class MUDClient:
@@ -37,69 +37,84 @@ class MUDClient:
             self.sock.settimeout(10)
             self.sock.connect((self.host, self.port))
             self.connected = True
-            time.sleep(1.0)
             return True
         except Exception as e:
             print(f"Error connecting to {self.host}:{self.port}: {e}")
             return False
 
-    def recv_until(self, pattern=None, timeout=3):
-        """Receive data until pattern found or timeout"""
-        self.sock.settimeout(timeout)
+    def _read_available(self, settle=0.3, max_wait=6):
+        """Read whatever the server sends, waiting for output to go quiet
+        (settle) rather than assuming a fixed prompt arrives instantly.
+        The MUD does several seconds of telnet option negotiation before
+        showing its first real prompt, so a fixed short timeout races it."""
+        self.sock.settimeout(settle)
         data = b''
-        try:
-            while True:
+        start = time.time()
+        last_recv = start
+        while time.time() - start < max_wait:
+            try:
                 chunk = self.sock.recv(4096)
                 if not chunk:
                     break
                 data += chunk
-                if pattern and pattern in data:
+                last_recv = time.time()
+            except socket.timeout:
+                if data and (time.time() - last_recv) >= settle:
                     break
-        except socket.timeout:
-            pass
-        except:
-            pass
+                continue
+            except OSError:
+                break
         return data
 
     def login(self, silent=False):
-        """Authenticate with the MUD"""
+        """Authenticate with the MUD, reacting to whatever prompt the
+        server actually sends rather than sending credentials on a timer.
+        Also transparently handles the case where a prior session is still
+        linkdead and the server drops us straight back into the game."""
         if not self.connected:
             if not self.connect():
                 return False
 
-        try:
-            # Clear initial data
-            self.recv_until(timeout=2)
+        name_sent = False
+        password_sent = False
+        deadline = time.time() + 20
 
-            # Send username
-            self.sock.send(f"{self.username}\r\n".encode())
-            time.sleep(0.3)
-            response = self.recv_until(timeout=1)
+        while time.time() < deadline:
+            chunk = self._read_available(settle=0.4, max_wait=4)
 
-            # If asked for confirmation, send yes
-            if b'Y/N' in response or b'(Y/N)' in response:
-                self.sock.send(b"Y\r\n")
-                time.sleep(0.3)
-                response = self.recv_until(timeout=1)
+            if IN_GAME_RE.search(chunk):
+                self.connected = True
+                if not silent:
+                    print("Logged in successfully")
+                return True
 
-            # Send password
-            self.sock.send(f"{self.password}\r\n".encode())
-            time.sleep(2.0)
-            response = self.recv_until(timeout=1)
+            if not chunk:
+                continue
 
-            # Handle disclaimer
-            if b'Yes or No' in response or b'Disclaimer' in response or b'?' in response:
-                self.sock.send(b"Yes\r\n")
-                time.sleep(0.5)
-                self.recv_until(timeout=1)
+            if b'By what name' in chunk:
+                self.sock.send(f"{self.username}\r\n".encode())
+                name_sent = True
+            elif b'Did I get that right' in chunk or b'(Y/N)' in chunk:
+                # Only confirm if it's confirming the name we actually sent.
+                if self.username.encode().lower() in chunk.lower():
+                    self.sock.send(b"Y\r\n")
+                else:
+                    self.sock.send(b"N\r\n")
+            elif b'Password:' in chunk and not password_sent:
+                self.sock.send(f"{self.password}\r\n".encode())
+                password_sent = True
+            elif b'PRESS RETURN' in chunk:
+                self.sock.send(b"\r\n")
+            elif b'Make your choice' in chunk:
+                self.sock.send(b"1\r\n")
+            elif b'Wrong password' in chunk or b'password incorrect' in chunk.lower():
+                print("Error: incorrect password")
+                self.connected = False
+                return False
 
-            self.connected = True
-            if not silent:
-                print("Logged in successfully")
-            return True
-        except Exception as e:
-            print(f"Error during login: {e}")
-            return False
+        print("Error: timed out waiting for login to complete")
+        self.connected = False
+        return False
 
     def send_command(self, command):
         """Send a command to the MUD and return the response"""
@@ -109,10 +124,8 @@ class MUDClient:
 
         try:
             self.sock.send(f"{command}\r\n".encode())
-            response = self.recv_until(timeout=2)
-
-            response_str = response.decode('utf-8', errors='ignore')
-            cleaned = self._clean_ansi(response_str)
+            response = self._read_available(settle=0.3, max_wait=6)
+            cleaned = self._clean_ansi(response.decode('utf-8', errors='ignore'))
             return cleaned.strip()
         except Exception as e:
             print(f"Error executing command: {e}")
@@ -125,7 +138,7 @@ class MUDClient:
             try:
                 self.send_command("quit")
                 self.sock.close()
-            except:
+            except Exception:
                 pass
             self.connected = False
             print("Logged out")
@@ -139,12 +152,13 @@ class MUDClient:
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: mud_client.py <command> [args]")
-        print("Commands:")
-        print("  login              - Connect and authenticate")
-        print("  command <cmd>      - Execute a MUD command")
-        print("  logout             - Disconnect")
-        print("  status             - Show character status")
+        print("Usage: mud_client.py <action> [args]")
+        print("Actions:")
+        print("  login                 - Connect, authenticate, and quit")
+        print("  command <cmd>         - Log in, execute one command, quit")
+        print("  commands <cmd> <cmd>  - Log in, execute multiple commands in order, quit")
+        print("  status                - Log in, show character status (score), quit")
+        print("  logout                - Connect and quit (clears a linkdead session)")
         sys.exit(1)
 
     action = sys.argv[1]
@@ -152,40 +166,53 @@ def main():
 
     try:
         if action == 'login':
-            client.connect()
-            client.login()
+            if client.login():
+                client.logout()
 
         elif action == 'command':
             if len(sys.argv) < 3:
                 print("Usage: mud_client.py command <command>")
                 sys.exit(1)
             cmd = ' '.join(sys.argv[2:])
-            client.connect()
-            client.login(silent=True)
-            output = client.send_command(cmd)
-            if output:
-                print(output)
+            if client.login(silent=True):
+                output = client.send_command(cmd)
+                if output:
+                    print(output)
+                client.logout()
 
-        elif action == 'logout':
-            client.connect()
-            client.logout()
+        elif action == 'commands':
+            if len(sys.argv) < 3:
+                print("Usage: mud_client.py commands <cmd1> <cmd2> ...")
+                sys.exit(1)
+            if client.login(silent=True):
+                for cmd in sys.argv[2:]:
+                    output = client.send_command(cmd)
+                    print(f"> {cmd}")
+                    if output:
+                        print(output)
+                    print()
+                client.logout()
 
         elif action == 'status':
-            client.connect()
-            client.login(silent=True)
-            output = client.send_command('score')
-            if output:
-                print(output)
+            if client.login(silent=True):
+                output = client.send_command('score')
+                if output:
+                    print(output)
+                client.logout()
+
+        elif action == 'logout':
+            if client.login(silent=True):
+                client.logout()
 
         else:
-            print(f"Unknown command: {action}")
+            print(f"Unknown action: {action}")
             sys.exit(1)
 
     finally:
-        if client.connected:
+        if client.connected and client.sock:
             try:
                 client.sock.close()
-            except:
+            except Exception:
                 pass
 
 
