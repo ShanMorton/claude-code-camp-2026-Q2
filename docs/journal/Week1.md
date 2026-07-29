@@ -160,4 +160,7 @@ findable root causes (a race condition in a script, a typo'd path, a missing
 `bundle exec`) rather than the environment or WSL/Ruby setup being broken. Working
 through them one at a time with Claude, and giving more specific prompts, made steady
 progress possible.
-(End Summary by Claude)
+####(End Summary by Claude)
+
+I decided NOT to port to Python, so I did watch the video, Config Python Port,
+I wanted to move fwd to see how far I would get in the Week1 videos.
