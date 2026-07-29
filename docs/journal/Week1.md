@@ -179,4 +179,6 @@ I am passing on porting the Ruby code to Python; watched the "Struct Skeleton Py
 video but didn't ask for the conversion to be done.
 
 
+On to the "Prompt Builder Ruby" video, watching but choosing not to port the code to Python.
+
 
