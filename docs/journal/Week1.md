@@ -118,3 +118,43 @@ so `example.rb` would actually run:
   gems and local Bundler config don't get committed.
 
 End result: `example.rb` runs cleanly and prints the Boukensha config output.
+
+## Project Summary So Far - 2026-07-28 (Summary by Claude)
+
+Overall progress across this week, pulled together from the updates above:
+
+**27 July 2026 — MUD login and finding the bakery**
+- Challenge: login to the MUD kept timing out, and the client sometimes created a
+  stray new character instead of logging in as the existing user.
+- Root cause: the `mud-player` skill's script sent username/password on fixed timers,
+  racing tbaMUD's telnet negotiation, so credentials landed at the wrong prompt.
+- Fix: rewrote the login logic in `scripts/mud_client.py` as a state machine that
+  waits for and reacts to the actual prompt shown, added support for reconnecting to
+  a linkdead session, added a `commands` (plural) action to run a sequence of MUD
+  commands in one login, and removed a stray duplicate draft `mud-player/` folder.
+- Result: logged in successfully and found the Bakery (Temple of Midgaard → down →
+  Temple Square → south → Market Square → west → Main Street → north → The Bakery),
+  with prices recorded for danish pastry, bread, and waybread.
+
+**28 July 2026 — Getting Ruby's `example.rb` running (`week1_baseline/ruby/00_config`)**
+- Challenge: `ruby examples/example.rb` failed with `cannot load such file -- dotenv`.
+- Root cause: `dotenv` was installed only into Bundler's local `vendor/bundle` path,
+  not Ruby's global gem path, so a plain `ruby` invocation couldn't see it.
+- Fix: confirmed `bundle exec ruby examples/example.rb` worked, then added
+  `require "bundler/setup"` to the top of `example.rb` so plain `ruby example.rb`
+  works too.
+- Challenge: `bin/00_config` was failing to `cd` into the right directory.
+- Root cause: an extra `ruby/` segment had been added to the `cd` path by mistake.
+- Fix: corrected the path back to `../00_config`.
+- Housekeeping: updated the root `.gitignore` to ignore `vendor/` and `.bundle/`
+  (installed gems and local Bundler config shouldn't be committed), and confirmed the
+  existing `.env` rule in `.gitignore` already covers `.boukensha/.env` with no
+  changes needed.
+- Result: `example.rb` now runs cleanly with either `bundle exec ruby` or plain
+  `ruby`, printing the Boukensha config output.
+
+**Overall takeaway:** most of the "stuck" moments this week turned out to be small,
+findable root causes (a race condition in a script, a typo'd path, a missing
+`bundle exec`) rather than the environment or WSL/Ruby setup being broken. Working
+through them one at a time with Claude, and giving more specific prompts, made steady
+progress possible.
