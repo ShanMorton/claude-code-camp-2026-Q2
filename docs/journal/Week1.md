@@ -166,3 +166,17 @@ I decided NOT to port to Python, so I did watch the video, Config Python Port,
 I wanted to move fwd to see how far I would get in the Week1 videos.
 
 Proceeding on to video "Struct Skeleton Ruby".
+
+
+29July2026
+Running into the same issues the the video.
+I asked Claude to ensure that any time I want to run ruby, that I can do 
+it from anywhere in my repo/files.
+
+So far, so good.
+
+I am passing on porting the Ruby code to Python; watched the "Struct Skeleton Python Port" 
+video but didn't ask for the conversion to be done.
+
+
+
