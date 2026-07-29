@@ -16,7 +16,7 @@ tasks:
 # own — it is an MCP host, and an empty mcp_servers means an agent that can
 # only talk. Each entry is one server process: command + args + env, the same
 # stdio transport config every MCP host uses.
-mcp_servers:
+##mcp_servers:
   # The MUD. `mud` is not special to boukensha any more — it's just the server
   # that happens to know telnet and the login dance. Credentials travel by
   # environment because that is what the stdio transport gives you; the LLM
@@ -37,16 +37,16 @@ mcp_servers:
     env:
       MUD_HOST:     localhost
       MUD_PORT:     4000
-      MUD_NAME:     derrano
-      MUD_PASSWORD: testing
+      MUD_NAME:     dummy
+      MUD_PASSWORD: helloworld
 
   # Files. A third-party server nobody wrote boukensha code for — which is the
   # whole point: file access is a server you plug in, not a feature the agent
   # was born with. Edit the last arg to change what it can reach.
   #
   # required: false so a missing npx is a warning, not a dead agent.
-  filesystem:
-    command:  npx
-    args:     [-y, "@modelcontextprotocol/server-filesystem", /tmp]
-    prefix:   fs
-    required: false
+    # filesystem:
+    #   command:  npx
+    #   args:     [-y, "@modelcontextprotocol/server-filesystem", /tmp]
+    #   prefix:   fs
+    #   required: false
