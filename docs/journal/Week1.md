@@ -164,3 +164,5 @@ progress possible.
 
 I decided NOT to port to Python, so I did watch the video, Config Python Port,
 I wanted to move fwd to see how far I would get in the Week1 videos.
+
+Proceeding on to video "Struct Skeleton Ruby".

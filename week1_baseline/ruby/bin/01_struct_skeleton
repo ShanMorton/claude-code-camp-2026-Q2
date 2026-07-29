@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "$0")/../01_struct_skeleton"
-bundle exec ruby examples/example.rb
+ruby examples/example.rb

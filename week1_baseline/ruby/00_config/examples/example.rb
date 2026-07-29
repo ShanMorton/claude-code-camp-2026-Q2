@@ -1,4 +1,3 @@
-require "bundler/setup"
 require_relative "../lib/boukensha"
 
 # Override the config directory so the example works from the repo root.
