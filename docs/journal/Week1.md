@@ -81,3 +81,40 @@ Takeaway: the "login timing out" problem wasn't the environment or Ruby/WSL setu
 all — it was a race condition in the telnet handshake logic in the skill's own script.
 Worth remembering for next time something "just hangs": trace the raw protocol by hand
 before assuming the infrastructure is broken.
+
+28July2026
+Wow! Talk about being confused!!!
+
+I am working through the video "Config Ruby" and asking for help from Claude to get 
+Ruby running and to fix any file/paths that need to be updated.
+
+Claude is FIXING MY ERRORS!!!  
+
+I wish I had this type of tool when I was in college to learn to program.
+I might have been a decent programmer!! 
+I guess I still could be!
+
+Ruby is running and I'm progressing througt the video.
+Still confused but at least things are matching the video.
+
+Below is where I"ll ask Claude to update this readme file with the work 
+that it has done for me.
+
+## Update - 2026-07-28: Got example.rb running (Summary by Claude)
+
+Worked through the `00_config` step in `week1_baseline/ruby/` and fixed a few things
+so `example.rb` would actually run:
+
+- `ruby examples/example.rb` was failing with `cannot load such file -- dotenv`
+  because the `dotenv` gem was only installed into Bundler's local `vendor/bundle`
+  path, not Ruby's global gem path. Running it as `bundle exec ruby examples/example.rb`
+  worked right away.
+- `bin/00_config` had a broken `cd` path (an extra `ruby/` had snuck into it), so the
+  script's `cd` was silently failing. Fixed the path so the script runs from the right
+  directory again.
+- Added `require "bundler/setup"` to the top of `examples/example.rb` so plain
+  `ruby example.rb` also works now, without needing `bundle exec` every time.
+- Updated the root `.gitignore` to ignore `vendor/` and `.bundle/` so the installed
+  gems and local Bundler config don't get committed.
+
+End result: `example.rb` runs cleanly and prints the Boukensha config output.
