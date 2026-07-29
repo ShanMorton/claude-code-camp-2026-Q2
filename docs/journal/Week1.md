@@ -28,7 +28,7 @@ log in with the login timing out.  I got frustrated with it and quit.
 
 ## Technical Conclusions
 27July2026
-It really make a difference how good your prompts are.  The better they are the more
+It really makes a difference how good your prompts are.  The better they are the more
 they can do. Now, I'm not thinking Claude is as dumb as I thought; I'm the less intelligent
 one for not telling it exactly what I want it to do.
 
@@ -81,8 +81,9 @@ Takeaway: the "login timing out" problem wasn't the environment or Ruby/WSL setu
 all — it was a race condition in the telnet handshake logic in the skill's own script.
 Worth remembering for next time something "just hangs": trace the raw protocol by hand
 before assuming the infrastructure is broken.
+(End Summary by Claude)
 
-28July2026
+28July2026 - SM
 Wow! Talk about being confused!!!
 
 I am working through the video "Config Ruby" and asking for help from Claude to get 
@@ -97,7 +98,7 @@ I guess I still could be!
 Ruby is running and I'm progressing througt the video.
 Still confused but at least things are matching the video.
 
-Below is where I"ll ask Claude to update this readme file with the work 
+Below is where I'll ask Claude to update this readme file with the work 
 that it has done for me.
 
 ## Update - 2026-07-28: Got example.rb running (Summary by Claude)
@@ -158,3 +159,4 @@ findable root causes (a race condition in a script, a typo'd path, a missing
 `bundle exec`) rather than the environment or WSL/Ruby setup being broken. Working
 through them one at a time with Claude, and giving more specific prompts, made steady
 progress possible.
+(End Summary by Claude)
