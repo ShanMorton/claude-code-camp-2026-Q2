@@ -10,7 +10,7 @@ not sure how I skipped it but asked Claude to fix the issue of getting logged
 in and finding the bakery. I guess I didn't put the proper prompt in the first time;
 Claude kept trying to log in and create a new user instead of logging in with
 the user I had created.
-This time around I got the prompt more correct,and proceeded with updating/creating the skill and installing the skill into Claude to be used.
+This time around I got the prompt more correct, and proceeded with updating/creating the skill and installing the skill into Claude to be used.
 
 
 
@@ -20,6 +20,7 @@ on trying to get the environment to start up and to get the correct player to
 log in with the login timing out.  I got frustrated with it and quit.
 
 - installed ruby in WSL on my laptop.
+- got Ruby to run properly with assistance.
 
 
 ## Technicial Hypotheses
