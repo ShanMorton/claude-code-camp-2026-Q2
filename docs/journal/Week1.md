@@ -182,3 +182,9 @@ video but didn't ask for the conversion to be done.
 On to the "Prompt Builder Ruby" video, watching but choosing not to port the code to Python.
 
 
+30July2026
+I attended the office hrs to see if I would learn something new.  I don't think I'll get through
+week1 but my goal is to finish the videos and follow along as best I can.
+
+Seeing how Andrew uses Claude has been the most helpful for me.
+
