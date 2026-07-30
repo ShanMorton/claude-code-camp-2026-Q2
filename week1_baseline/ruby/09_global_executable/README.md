@@ -14,7 +14,7 @@ Package BOUKENSHA as a gem so the `boukensha` command works from anywhere on you
 ```bash
 cd 08_global_executable
 gem build boukensha.gemspec
-gem install boukensha-0.1.0.gem
+gem install boukensha-0.9.0.gem
 ```
 
 After that, `boukensha` is on your `$PATH` and works from any directory.
