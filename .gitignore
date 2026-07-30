@@ -11,7 +11,7 @@ vendor/
 *.gem
 
 # Boukensha runtime data
-.boukensha/sessions/
+#.boukensha/sessions/
 
 # Claude Code local settings (per-user permission overrides)
 .claude/settings.local.json
